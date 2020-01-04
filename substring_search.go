@@ -6,7 +6,7 @@ func isCyclicRotation(a, b string) bool {
 	}
 
 	for i := len(b) - 1; i > 0; i-- {
-		if a == b[i:]+b[:i] {
+		if a[:1] == b[i:i+1] && a == b[i:]+b[:i] {
 			return true
 		}
 	}
