@@ -32,12 +32,14 @@ func Test_isCyclicRotation(t *testing.T) {
 		})
 	}
 
-	a, b := randstr.String(4), randstr.String(4)
-	t.Run(a+" "+b, func(t *testing.T) {
-		if got := isCyclicRotation(a+b, b+a); got != true {
-			t.Errorf("isCyclicRotation() = %v, want %v", got, true)
-		}
-	})
+	for i := 0; i < 1000; i++ {
+		a, b := randstr.String(4), randstr.String(4)
+		t.Run(a+" "+b, func(t *testing.T) {
+			if got := isCyclicRotation(a+b, b+a); got != true {
+				t.Errorf("isCyclicRotation() = %v, want %v", got, true)
+			}
+		})
+	}
 }
 
 func Test_tandemRepeat(t *testing.T) {
