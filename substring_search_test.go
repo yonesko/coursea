@@ -78,6 +78,7 @@ func Test_tandemRepeat(t *testing.T) {
 	}{
 		{args: args{a: "abcabcababcaba"}, want: "abcababcab"},
 		{args: args{a: "123456565678"}, want: "565656"},
+		{args: args{a: "1234567890"}, want: ""},
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.args), func(t *testing.T) {
