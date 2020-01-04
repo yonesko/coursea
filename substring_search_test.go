@@ -39,6 +39,9 @@ func Test_isCyclicRotation(t *testing.T) {
 			if got := isCyclicRotation(a+b, b+a); got != true {
 				t.Errorf("isCyclicRotation() = %v, want %v", got, true)
 			}
+			if got := isCyclicRotation(b+a, a+b); got != true {
+				t.Errorf("isCyclicRotation() = %v, want %v", got, true)
+			}
 		})
 	}
 }
