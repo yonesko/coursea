@@ -16,6 +16,7 @@ func Test_isCyclicRotation(t *testing.T) {
 		want bool
 	}{
 		{args: args{a: "winterbreak", b: "breakwinter"}, want: true},
+		{args: args{a: "winterbrwintereak", b: "brwintereakwinter"}, want: true},
 		{args: args{a: "abcdef", b: "efabcd"}, want: true},
 		{args: args{a: "tttttttttt", b: "tttttttttt"}, want: true},
 		{args: args{a: "123456", b: "7890"}, want: false},
