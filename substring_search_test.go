@@ -57,6 +57,16 @@ func Benchmark_isCyclicRotation(bench *testing.B) {
 		})
 	}
 }
+func Benchmark_tandemRepeat(bench *testing.B) {
+	for p := 1; p <= 5; p++ {
+		bench.Run(fmt.Sprintf("pow-%d", p), func(bench *testing.B) {
+			a := randstr.String(int(math.Pow10(p)))
+			for i := 0; i < bench.N; i++ {
+				tandemRepeat(a)
+			}
+		})
+	}
+}
 
 func Test_tandemRepeat(t *testing.T) {
 	type args struct {
