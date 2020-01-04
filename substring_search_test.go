@@ -79,7 +79,7 @@ func Test_tandemRepeat(t *testing.T) {
 	}{
 		{args: args{a: "abcabcababcaba"}, want: "abcababcab"},
 		{args: args{a: "123456565678"}, want: "565656"},
-		{args: args{a: "1234567890"}, want: ""},
+		{args: args{a: "1234567890"}, want: "1234567890"},
 		{args: args{a: "aaaaaaaaaaaa"}, want: "aaaaaaaaaaaa"},
 	}
 	for _, tt := range tests {
