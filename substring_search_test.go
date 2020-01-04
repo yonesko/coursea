@@ -77,10 +77,11 @@ func Test_tandemRepeat(t *testing.T) {
 		args args
 		want string
 	}{
-		{args: args{a: "abcabcababcaba"}, want: "abcababcab"},
-		{args: args{a: "123456565678"}, want: "565656"},
+		{args: args{a: "abcabcababcaba"}, want: "abcab"},
+		{args: args{a: "123456565678"}, want: "56"},
 		{args: args{a: "1234567890"}, want: "1234567890"},
-		{args: args{a: "aaaaaaaaaaaa"}, want: "aaaaaaaaaaaa"},
+		{args: args{a: "abcabc"}, want: "abc"},
+		{args: args{a: "aaaaaaaaaaaa"}, want: "a"},
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.args), func(t *testing.T) {
@@ -90,10 +91,10 @@ func Test_tandemRepeat(t *testing.T) {
 		})
 	}
 
-	repeat := strings.Repeat(randstr.String(3), 5)
-	t.Run(repeat, func(t *testing.T) {
-		if got := tandemRepeat("12" + repeat + "44"); got != repeat {
-			t.Errorf("tandemRepeat() = %v, want %v", got, repeat)
+	b := randstr.String(3)
+	t.Run(strings.Repeat(b, 5), func(t *testing.T) {
+		if got := tandemRepeat("12" + strings.Repeat(b, 5) + "44"); got != b {
+			t.Errorf("tandemRepeat() = %v, want %v", got, strings.Repeat(b, 5))
 		}
 	})
 }
