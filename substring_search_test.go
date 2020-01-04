@@ -23,6 +23,7 @@ func Test_isCyclicRotation(t *testing.T) {
 		{args: args{a: "abcdef", b: "efabcd"}, want: true},
 		{args: args{a: "tttttttttt", b: "tttttttttt"}, want: true},
 		{args: args{a: "123456", b: "7890"}, want: false},
+		{args: args{a: "aaaaaaaaaaa", b: "aaaaaaaaaaa"}, want: true},
 		{args: args{a: "7g7Xn2qO", b: "n2qO7g7X"}, want: true},
 	}
 	for _, tt := range tests {
@@ -79,6 +80,7 @@ func Test_tandemRepeat(t *testing.T) {
 		{args: args{a: "abcabcababcaba"}, want: "abcababcab"},
 		{args: args{a: "123456565678"}, want: "565656"},
 		{args: args{a: "1234567890"}, want: ""},
+		{args: args{a: "aaaaaaaaaaaa"}, want: "aaaaaaaaaaaa"},
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.args), func(t *testing.T) {
