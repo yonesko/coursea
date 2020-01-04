@@ -3,6 +3,7 @@ package coursea
 import (
 	"fmt"
 	"github.com/thanhpk/randstr"
+	"math"
 	"strings"
 	"testing"
 )
@@ -43,10 +44,14 @@ func Test_isCyclicRotation(t *testing.T) {
 }
 
 func Benchmark_isCyclicRotation(bench *testing.B) {
-	a := strings.Repeat("123", 1)
-	b := strings.Repeat("abc", 1)
-	for i := 0; i < bench.N; i++ {
-		isCyclicRotation(strings.Repeat(a, i), strings.Repeat(b, i))
+	for p := 1; p <= 5; p++ {
+		bench.Run(fmt.Sprintf("pow-%d", p), func(bench *testing.B) {
+			a := strings.Repeat("123", int(math.Pow10(p)))
+			b := strings.Repeat("abc", int(math.Pow10(p)))
+			for i := 0; i < bench.N; i++ {
+				isCyclicRotation(a, b)
+			}
+		})
 	}
 }
 
