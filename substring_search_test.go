@@ -17,10 +17,12 @@ func Test_isCyclicRotation(t *testing.T) {
 		want bool
 	}{
 		{args: args{a: "winterbreak", b: "breakwinter"}, want: true},
+		{args: args{a: "wiwnterbreak", b: "breakwiwnter"}, want: true},
 		{args: args{a: "winterbrwintereak", b: "brwintereakwinter"}, want: true},
 		{args: args{a: "abcdef", b: "efabcd"}, want: true},
 		{args: args{a: "tttttttttt", b: "tttttttttt"}, want: true},
 		{args: args{a: "123456", b: "7890"}, want: false},
+		{args: args{a: "7g7Xn2qO", b: "n2qO7g7X"}, want: true},
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.args), func(t *testing.T) {
