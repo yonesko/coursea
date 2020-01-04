@@ -13,7 +13,6 @@ func isCyclicRotation(a, b string) bool {
 		}
 	}
 	return false
-
 }
 
 func tandemRepeat(a string) string {

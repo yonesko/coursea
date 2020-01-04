@@ -42,6 +42,14 @@ func Test_isCyclicRotation(t *testing.T) {
 	}
 }
 
+func Benchmark_isCyclicRotation(bench *testing.B) {
+	a := strings.Repeat("123", 1)
+	b := strings.Repeat("abc", 1)
+	for i := 0; i < bench.N; i++ {
+		isCyclicRotation(strings.Repeat(a, i), strings.Repeat(b, i))
+	}
+}
+
 func Test_tandemRepeat(t *testing.T) {
 	type args struct {
 		a string
