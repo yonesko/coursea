@@ -18,3 +18,7 @@ func isCyclicRotation(a, b string) bool {
 	return a == p2+p1
 
 }
+
+func tandemRepeat(a string) string {
+	return ""
+}

@@ -3,6 +3,7 @@ package coursea
 import (
 	"fmt"
 	"github.com/thanhpk/randstr"
+	"strings"
 	"testing"
 )
 
@@ -33,6 +34,33 @@ func Test_isCyclicRotation(t *testing.T) {
 	t.Run(a+" "+b, func(t *testing.T) {
 		if got := isCyclicRotation(a+b, b+a); got != true {
 			t.Errorf("isCyclicRotation() = %v, want %v", got, true)
+		}
+	})
+}
+
+func Test_tandemRepeat(t *testing.T) {
+	type args struct {
+		a string
+	}
+	tests := []struct {
+		args args
+		want string
+	}{
+		{args: args{a: "abcabcababcaba"}, want: "abcababcab"},
+		{args: args{a: "123456565678"}, want: "565656"},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprint(tt.args), func(t *testing.T) {
+			if got := tandemRepeat(tt.args.a); got != tt.want {
+				t.Errorf("tandemRepeat() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+
+	repeat := strings.Repeat(randstr.String(3), 5)
+	t.Run(repeat, func(t *testing.T) {
+		if got := tandemRepeat("12" + repeat + "44"); got != repeat {
+			t.Errorf("tandemRepeat() = %v, want %v", got, repeat)
 		}
 	})
 }
