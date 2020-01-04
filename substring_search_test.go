@@ -48,7 +48,7 @@ func Test_isCyclicRotation(t *testing.T) {
 }
 
 func Benchmark_isCyclicRotation(bench *testing.B) {
-	for p := 1; p <= 5; p++ {
+	for p := 1; p <= 6; p++ {
 		bench.Run(fmt.Sprintf("pow-%d", p), func(bench *testing.B) {
 			a := strings.Repeat("123", int(math.Pow10(p)))
 			b := strings.Repeat("abc", int(math.Pow10(p)))
