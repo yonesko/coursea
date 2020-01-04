@@ -2,6 +2,7 @@ package coursea
 
 import (
 	"fmt"
+	"github.com/thanhpk/randstr"
 	"testing"
 )
 
@@ -27,4 +28,10 @@ func Test_isCyclicRotation(t *testing.T) {
 		})
 	}
 
+	a, b := randstr.String(4), randstr.String(4)
+	t.Run(a+" "+b, func(t *testing.T) {
+		if got := isCyclicRotation(a+b, b+a); got != true {
+			t.Errorf("isCyclicRotation() = %v, want %v", got, true)
+		}
+	})
 }
